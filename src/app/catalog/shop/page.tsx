@@ -113,6 +113,22 @@ function sanitizeHtml(html: string): string {
   sanitized = sanitized.replace(/<iframe[\s\S]*?<\/iframe>/gi, "");
   sanitized = sanitized.replace(/<iframe[^>]*\/>/gi, "");
   sanitized = sanitized.replace(/<noscript[\s\S]*?<\/noscript>/gi, "");
+
+  // Replace brand: АгроДекор → У Захара
+  sanitized = sanitized.replace(/АгроДекор/g, "У Захара");
+  sanitized = sanitized.replace(/агродекор/gi, "У Захара");
+  sanitized = sanitized.replace(/Agrodecor/gi, "У Захара");
+  sanitized = sanitized.replace(/agrodecor/gi, "У Захара");
+
+  // Replace location: Москва → г. Струнино
+  sanitized = sanitized.replace(/в Москве/g, "в г. Струнино");
+  sanitized = sanitized.replace(/в г\. Москве/g, "в г. Струнино");
+  sanitized = sanitized.replace(/из Москвы/g, "из г. Струнино");
+  sanitized = sanitized.replace(/Москву/g, "г. Струнино");
+  sanitized = sanitized.replace(/Москве/g, "г. Струнино");
+  sanitized = sanitized.replace(/Москва/g, "г. Струнино");
+  sanitized = sanitized.replace(/г\. г\./g, "г.");
+
   return sanitized;
 }
 
