@@ -22,10 +22,36 @@ import { Badge } from "@/components/ui/badge";
 
 export const revalidate = 3600; // Cache for 1 hour
 
+/* ─── Slug Mapping (our URLs → agrodecor.ru URLs) ─── */
+const SLUG_MAP: Record<string, string> = {
+  "z-hrizantemy": "hrizantema-multiflora",
+  "z-ampelnye": "ampelnye-cvety",
+  "z-rassada-ovoshchey": "rassada-ovoshchej",
+  "z-rassada-cvetov": "rassada-cvetov",
+  "z-luk-sevok": "luk-sevok",
+  "z-mnogoletnie": "mnogoletnie-cvety",
+  "z-pryanye-travy": "pryanye-travy",
+  "z-piony": "piony",
+  "z-dekorativnye": "dekorativnye-sazhency",
+  "z-plodovye": "plodovye-sazhency-optom-i-v-roznicu",
+  "z-rododendrony": "rododendrony",
+  "z-zemlyanika": "sazhency-sadovoj-zemlyaniki",
+  "z-rozy-austin": "sazhency-roz-david-austin",
+  "z-rozy-muskusnye": "sazhency-roz-muskusnyh",
+  "z-rozy-rossiya": "sazhency-roz-rossiya",
+  "z-gortenzii": "sazhency-gortenzii",
+  "z-klematisy": "sazhency-klematisov",
+  "z-hvojnye": "hvojnye-sazhency",
+  "z-tyulpany": "tyulpany-optom-ot-proizvoditelya",
+  "z-gazony": "gazony-semena",
+  "z-grunty-udobreniya": "grunty-i-udobreniya",
+  "z-kora-mulcha": "kora-mulcha",
+};
+
 /* ─── HTML Fetching & Processing ─── */
 
-async function fetchAgrodecorPage(slug: string) {
-  const url = `https://agrodecor.ru/${slug}`;
+async function fetchAgrodecorPage(agroSlug: string) {
+  const url = `https://agrodecor.ru/${agroSlug}`;
 
   try {
     const res = await fetch(url, {
@@ -139,6 +165,21 @@ function sanitizeHtml(html: string): string {
 
   // Remove noscript tags
   sanitized = sanitized.replace(/<noscript[\s\S]*?<\/noscript>/gi, "");
+
+  // Replace brand name: АгроДекор → У Захара (in text content and alt/title attributes)
+  sanitized = sanitized.replace(/АгроДекор/g, "У Захара");
+  sanitized = sanitized.replace(/агродекор/gi, "У Захара");
+  sanitized = sanitized.replace(/Agrodecor/gi, "У Захара");
+  sanitized = sanitized.replace(/agrodecor/gi, "У Захара");
+
+  // Replace location: Москва/Москве/Москву → г. Струнино
+  sanitized = sanitized.replace(/в Москве/g, "в г. Струнино");
+  sanitized = sanitized.replace(/в г\. Москве/g, "в г. Струнино");
+  sanitized = sanitized.replace(/из Москвы/g, "из г. Струнино");
+  sanitized = sanitized.replace(/Москву/g, "г. Струнино");
+  sanitized = sanitized.replace(/Москве/g, "г. Струнино");
+  sanitized = sanitized.replace(/Москва/g, "г. Струнино");
+  sanitized = sanitized.replace(/г\. г\./g, "г."); // Fix double "г. г."
 
   return sanitized;
 }
@@ -282,7 +323,7 @@ function CatalogFooter() {
             </div>
             <p className="text-green-300 text-sm leading-relaxed mb-4">
               Интернет-магазин саженцев и растений с доставкой по Струнино, Александрову, Сергиеву
-              Посаду и окрестностям. Собственный питомник в Москве. Опыт работы более 10 лет.
+              Посаду и окрестностям. Собственный питомник в г. Струнино. Опыт работы более 10 лет.
             </p>
             <div className="flex gap-3">
               <a
@@ -440,14 +481,20 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const html = await fetchAgrodecorPage(slug);
+  const agroSlug = SLUG_MAP[slug] || slug; // fallback: try as-is for direct product links
+  const html = await fetchAgrodecorPage(agroSlug);
   const title = html ? extractTitle(html) : "";
 
-  // Clean title: remove "АгроДекор" and trailing separators, then add "У Захара"
+  // Clean title: remove "АгроДекор"/"Москва" and trailing separators, then add "У Захара"
   let cleanTitle = title
     .replace(/\s*[|—–-]\s*АгроДекор\s*/gi, '')
     .replace(/\s*АгроДекор\s*/gi, '')
     .replace(/\s*[|—–-]\s*$/g, '')
+    .replace(/в Москве/gi, 'в г. Струнино')
+    .replace(/Москву/g, 'г. Струнино')
+    .replace(/Москве/g, 'г. Струнино')
+    .replace(/Москва/g, 'г. Струнино')
+    .replace(/г\. г\./g, 'г.')
     .trim();
 
   return {
@@ -458,7 +505,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function CatalogSlugPage({ params }: PageProps) {
   const { slug } = await params;
-  const html = await fetchAgrodecorPage(slug);
+  const agroSlug = SLUG_MAP[slug] || slug; // fallback for direct product links
+  const html = await fetchAgrodecorPage(agroSlug);
 
   if (!html) {
     notFound();
@@ -490,6 +538,11 @@ export default async function CatalogSlugPage({ params }: PageProps) {
                 .replace(/\s*[|—–-]\s*$/g, '')
                 .replace(/— У Захара.*$/, '')
                 .replace(/У Захара.*$/, '')
+                .replace(/в Москве/gi, 'в г. Струнино')
+                .replace(/Москву/g, 'г. Струнино')
+                .replace(/Москве/g, 'г. Струнино')
+                .replace(/Москва/g, 'г. Струнино')
+                .replace(/г\. г\./g, 'г.')
                 .trim() || decodeURIComponent(slug)}
             </h1>
           )}

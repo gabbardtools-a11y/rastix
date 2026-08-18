@@ -37,112 +37,112 @@ import { Badge } from "@/components/ui/badge";
 const CATEGORIES = [
   {
     name: "Хризантема мультифлора",
-    slug: "/hrizantema-multiflora",
+    slug: "/z-hrizantemy", agroSlug: "/hrizantema-multiflora",
     img: "https://agrodecor.ru/thumb/2/1-0_9CHM6jJfUvmFyEzMhA/160c145/d/hrizantema_multiflora.jpg",
   },
   {
     name: "Ампельные цветы",
-    slug: "/ampelnye-cvety",
+    slug: "/z-ampelnye", agroSlug: "/ampelnye-cvety",
     img: "https://agrodecor.ru/thumb/2/kJPyIJMR0kpZ7beI1d_5mQ/160c145/d/image_458.jpg",
   },
   {
     name: "Рассада овощей",
-    slug: "/rassada-ovoshchej",
+    slug: "/z-rassada-ovoshchey", agroSlug: "/rassada-ovoshchej",
     img: "https://agrodecor.ru/thumb/2/q9zPyjaDl_gk9Kzs1XxsEA/160c145/d/kapusta_tsvetnaya.jpg",
   },
   {
     name: "Рассада цветов",
-    slug: "/rassada-cvetov",
+    slug: "/z-rassada-cvetov", agroSlug: "/rassada-cvetov",
     img: "https://agrodecor.ru/thumb/2/MSogzedpkTPpygn7NxPMYg/160c145/d/image_286.jpg",
   },
   {
     name: "Лук-севок",
-    slug: "/luk-sevok",
+    slug: "/z-luk-sevok", agroSlug: "/luk-sevok",
     img: "https://agrodecor.ru/thumb/2/ujkF8bCvIdXRQfJ2NkyaMg/160c145/d/luk_sevok.jpg",
   },
   {
     name: "Многолетние цветы",
-    slug: "/mnogoletnie-cvety",
+    slug: "/z-mnogoletnie", agroSlug: "/mnogoletnie-cvety",
     img: "https://agrodecor.ru/thumb/2/xXXWd92_lQCbi3ShxRnJ6Q/160c145/d/_maggie_daley.jpg",
   },
   {
     name: "Пряные травы",
-    slug: "/pryanye-travy",
+    slug: "/z-pryanye-travy", agroSlug: "/pryanye-travy",
     img: "https://agrodecor.ru/thumb/2/nFhtkA4-iDkenUaSYAGzfg/160c145/d/pryanyye_travy.jpg",
   },
   {
     name: "Пионы",
-    slug: "/piony",
+    slug: "/z-piony", agroSlug: "/piony",
     img: "https://agrodecor.ru/thumb/2/e6fNDDfvVZMsD8IcfAJHdg/160c145/d/selebriti.jpg",
   },
   {
     name: "Декоративные саженцы",
-    slug: "/dekorativnye-sazhency",
+    slug: "/z-dekorativnye", agroSlug: "/dekorativnye-sazhency",
     img: "https://agrodecor.ru/thumb/2/tuH2WK809GsuW73OndIndQ/160c145/d/golden_ring5.jpg",
   },
   {
     name: "Плодовые саженцы",
-    slug: "/plodovye-sazhency-optom-i-v-roznicu",
+    slug: "/z-plodovye", agroSlug: "/plodovye-sazhency-optom-i-v-roznicu",
     img: "https://agrodecor.ru/thumb/2/nvpmYC643D-kHSmrL844lw/160c145/d/podarok_grafskomu.jpg",
   },
   {
     name: "Рододендроны",
-    slug: "/rododendrony",
+    slug: "/z-rododendrony", agroSlug: "/rododendrony",
     img: "https://agrodecor.ru/thumb/2/sJC8_E2DNzKe9Eo6MJyTVA/160c145/d/rododendron_grandiflorum.jpg",
   },
   {
     name: "Земляника садовая",
-    slug: "/sazhency-sadovoj-zemlyaniki",
+    slug: "/z-zemlyanika", agroSlug: "/sazhency-sadovoj-zemlyaniki",
     img: "https://agrodecor.ru/thumb/2/oqgDDvKggHcx2CKagUYv6g/160c145/d/kleri_2.jpg",
   },
   {
     name: "Розы David Austin",
-    slug: "/sazhency-roz-david-austin",
+    slug: "/z-rozy-austin", agroSlug: "/sazhency-roz-david-austin",
     img: "https://agrodecor.ru/thumb/2/qTwcZCI_YjWc9kTc88cCzQ/160c145/d/%D0%90%D0%B1%D1%80%D0%B0%D1%85%D0%B0%D0%BC_%D0%94%D0%B5%D1%80%D0%B1%D0%B8.jpg",
   },
   {
     name: "Розы Мускусные",
-    slug: "/sazhency-roz-muskusnyh",
+    slug: "/z-rozy-muskusnye", agroSlug: "/sazhency-roz-muskusnyh",
     img: "https://agrodecor.ru/thumb/2/cbESZfLOvjeBHN160YSweQ/160c145/d/roza_muskusnaya.jpg",
   },
   {
     name: "Розы (Россия)",
-    slug: "/sazhency-roz-rossiya",
+    slug: "/z-rozy-rossiya", agroSlug: "/sazhency-roz-rossiya",
     img: "https://agrodecor.ru/thumb/2/9N8OsLR_gEsjZsEoKauPxQ/160c145/d/pink_intuition.jpg",
   },
   {
     name: "Гортензии",
-    slug: "/sazhency-gortenzii",
+    slug: "/z-gortenzii", agroSlug: "/sazhency-gortenzii",
     img: "https://agrodecor.ru/thumb/2/bBlk-I2iEf7F1j6MorYLwQ/160c145/d/gortenziya_metelchataya_vanilla_freyz.jpg",
   },
   {
     name: "Клематисы",
-    slug: "/sazhency-klematisov",
+    slug: "/z-klematisy", agroSlug: "/sazhency-klematisov",
     img: "https://agrodecor.ru/thumb/2/O0tesQ158Wdk9z3BsBdE4w/160c145/d/piilu.jpg",
   },
   {
     name: "Хвойные саженцы",
-    slug: "/hvojnye-sazhency",
+    slug: "/z-hvojnye", agroSlug: "/hvojnye-sazhency",
     img: "https://agrodecor.ru/thumb/2/vjyIeA34szCSipDgKr-_Eg/160c145/d/khvoyniki.jpg",
   },
   {
     name: "Срезка Тюльпанов",
-    slug: "/tyulpany-optom-ot-proizvoditelya",
+    slug: "/z-tyulpany", agroSlug: "/tyulpany-optom-ot-proizvoditelya",
     img: "https://agrodecor.ru/thumb/2/ysEk8dxTj_fLYjpf2At0UQ/160c145/d/leenvandermark_1.jpg",
   },
   {
     name: "Газоны (семена)",
-    slug: "/gazony-semena",
+    slug: "/z-gazony", agroSlug: "/gazony-semena",
     img: "https://agrodecor.ru/thumb/2/Y2d-kCza7wF1LqTmTvixhg/160c145/d/gazonnaya_trava.jpg",
   },
   {
     name: "Грунты и Удобрения",
-    slug: "/grunty-i-udobreniya",
+    slug: "/z-grunty-udobreniya", agroSlug: "/grunty-i-udobreniya",
     img: "https://agrodecor.ru/thumb/2/TtXkxexruQeHm1CCQJ4hDw/160c145/d/i_0.jpg",
   },
   {
     name: "Кора мульча",
-    slug: "/kora-mulcha",
+    slug: "/z-kora-mulcha", agroSlug: "/kora-mulcha",
     img: "https://agrodecor.ru/thumb/2/q3Bv6fELBPvi3r7LrjMd8A/160c145/d/kora_mulcha.jpg",
   },
 ];
@@ -187,7 +187,7 @@ const FEATURED_PRODUCTS = [
 
 const HERO_SLIDES = [
   {
-    title: "Рассада, саженцы, посадки\nв Москве",
+    title: "Рассада, саженцы, посадки\nв г. Струнино",
     subtitle: "Более 10 000 наименований растений от производителя с доставкой по Струнино, Александрову, Сергиеву Посаду и окрестностям",
     cta: "Перейти в каталог",
     ctaLink: "#catalog",
@@ -752,7 +752,7 @@ function AboutSection() {
             <p className="text-green-100 text-lg leading-relaxed mb-6">
               С 2009 года мы выращиваем и продаём саженцы, рассаду и
               декоративные растения для садоводов и ландшафтных дизайнеров по
-              всей России. Наш питомник в Москве — это более 10 000
+              всей России. Наш питомник в г. Струнино — это более 10 000
               наименований растений, профессиональная агрономическая команда и
               индивидуальный подход к каждому клиенту.
             </p>
@@ -936,7 +936,7 @@ function Footer() {
             </div>
             <p className="text-green-300 text-sm leading-relaxed mb-4">
               Интернет-магазин саженцев и растений с доставкой по Струнино, Александрову, Сергиеву Посаду и окрестностям.
-              Собственный питомник в Москве. Опыт работы более 10 лет.
+              Собственный питомник в г. Струнино. Опыт работы более 10 лет.
             </p>
             <div className="flex gap-3">
               <a
