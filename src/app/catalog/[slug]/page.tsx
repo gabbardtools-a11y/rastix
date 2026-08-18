@@ -443,8 +443,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const html = await fetchAgrodecorPage(slug);
   const title = html ? extractTitle(html) : "";
 
+  // Clean title: remove "АгроДекор" and trailing separators, then add "У Захара"
+  let cleanTitle = title
+    .replace(/\s*[|—–-]\s*АгроДекор\s*/gi, '')
+    .replace(/\s*АгроДекор\s*/gi, '')
+    .replace(/\s*[|—–-]\s*$/g, '')
+    .trim();
+
   return {
-    title: title ? `${title} — У Захара` : "Каталог — У Захара",
+    title: cleanTitle ? `${cleanTitle} — У Захара` : "Каталог — У Захара",
     description: "Рассада, саженцы, посадки от производителя. Доставка по Струнино, Александрову, Сергиеву Посаду и окрестностям.",
   };
 }
@@ -477,7 +484,13 @@ export default async function CatalogSlugPage({ params }: PageProps) {
           </div>
           {title && (
             <h1 className="text-2xl md:text-3xl font-bold text-green-900 mb-2">
-              {title.replace(/— У Захара.*$/, "").replace(/У Захара.*$/, "").trim() || decodeURIComponent(slug)}
+              {title
+                .replace(/\s*[|—–-]\s*АгроДекор\s*/gi, '')
+                .replace(/\s*АгроДекор\s*/gi, '')
+                .replace(/\s*[|—–-]\s*$/g, '')
+                .replace(/— У Захара.*$/, '')
+                .replace(/У Захара.*$/, '')
+                .trim() || decodeURIComponent(slug)}
             </h1>
           )}
         </div>
