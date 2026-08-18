@@ -228,3 +228,61 @@
   transform: translateY(-4px);
   box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.12);
 }
+
+/* Agrodecor content styling */
+.agrodecor-content {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #14532d;
+}
+.agrodecor-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+}
+.agrodecor-content a {
+  color: #16a34a;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.agrodecor-content a:hover {
+  color: #15803d;
+}
+.agrodecor-content h1,
+.agrodecor-content h2,
+.agrodecor-content h3,
+.agrodecor-content h4 {
+  color: #14532d;
+  font-weight: 700;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+.agrodecor-content h1 { font-size: 1.5rem; }
+.agrodecor-content h2 { font-size: 1.25rem; }
+.agrodecor-content h3 { font-size: 1.1rem; }
+.agrodecor-content p {
+  margin-bottom: 1em;
+}
+.agrodecor-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+}
+.agrodecor-content th,
+.agrodecor-content td {
+  border: 1px solid #dcfce7;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+.agrodecor-content th {
+  background: #f0fdf4;
+  font-weight: 600;
+}
+.agrodecor-content ul,
+.agrodecor-content ol {
+  padding-left: 1.5em;
+  margin-bottom: 1em;
+}
+.agrodecor-content li {
+  margin-bottom: 0.25em;
+}

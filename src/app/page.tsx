@@ -354,7 +354,7 @@ function Header() {
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </Button>
-          <a href="https://agrodecor.ru/shop/favorites">
+          <a href="/catalog/shop/favorites">
             <Button
               variant="ghost"
               size="icon"
@@ -364,7 +364,7 @@ function Header() {
               <Heart className="w-5 h-5" style={{ filter: 'drop-shadow(0 0 3px rgba(218, 165, 32, 0.4))' }} />
             </Button>
           </a>
-          <a href="https://agrodecor.ru/shop/cart">
+          <a href="/catalog/shop/cart">
             <Button
               variant="ghost"
               size="icon"
@@ -374,7 +374,7 @@ function Header() {
               <ShoppingCart className="w-5 h-5" style={{ filter: 'drop-shadow(0 0 3px rgba(218, 165, 32, 0.4))' }} />
             </Button>
           </a>
-          <a href="https://agrodecor.ru/shop" className="hidden sm:block">
+          <a href="/catalog/shop" className="hidden sm:block">
             <Button className="rounded-xl gap-2" style={{ background: 'linear-gradient(135deg, #b8860b, #daa520)', color: '#fff', textShadow: '0 1px 2px rgba(0,0,0,0.3)', boxShadow: '0 0 12px rgba(218,165,32,0.35)' }}>
               <ShoppingCart className="w-4 h-4" />
               В магазин
@@ -403,7 +403,7 @@ function Header() {
                 {group.items.map((item) => (
                   <a
                     key={item}
-                    href="https://agrodecor.ru/shop"
+                    href="/catalog/shop"
                     className="block px-3 py-1.5 text-sm text-gray-700 hover:text-green-700 hover:bg-green-50 rounded-lg transition-colors"
                   >
                     {item}
@@ -413,7 +413,7 @@ function Header() {
             ))}
           </nav>
           <div className="mt-4 pt-4 border-t border-green-100">
-            <a href="https://agrodecor.ru/shop">
+            <a href="/catalog/shop">
               <Button className="w-full rounded-xl" style={{ background: 'linear-gradient(135deg, #b8860b, #daa520)', color: '#fff', textShadow: '0 1px 2px rgba(0,0,0,0.3)', boxShadow: '0 0 12px rgba(218,165,32,0.35)' }}>
                 Перейти в магазин
               </Button>
@@ -620,7 +620,7 @@ function CatalogSection() {
           {CATEGORIES.map((cat) => (
             <a
               key={cat.slug}
-              href={`https://agrodecor.ru${cat.slug}`}
+              href={`/catalog${cat.slug}`}
               className="category-card group"
             >
               <Card className="overflow-hidden border-green-100 hover:border-green-300 bg-white rounded-2xl h-full">
@@ -643,7 +643,7 @@ function CatalogSection() {
         </div>
 
         <div className="text-center mt-10">
-          <a href="https://agrodecor.ru/shop">
+          <a href="/catalog/shop">
             <Button
               variant="outline"
               size="lg"
@@ -685,7 +685,7 @@ function FeaturedProducts() {
           {FEATURED_PRODUCTS.map((product) => (
             <a
               key={product.slug}
-              href={`https://agrodecor.ru${product.slug}`}
+              href={`/catalog${product.slug}`}
               className="product-card group"
             >
               <Card className="overflow-hidden border-green-100 hover:border-green-300 bg-white rounded-2xl h-full">
@@ -801,7 +801,7 @@ function AboutSection() {
               </div>
             </div>
 
-            <a href="https://agrodecor.ru/shop">
+            <a href="/catalog/shop">
               <Button
                 size="lg"
                 className="bg-green-500 hover:bg-green-400 text-white rounded-xl gap-2"
@@ -874,7 +874,7 @@ function CTASection() {
             нашего агронома по уходу за растениями. Доставка по Струнино, Александрову, Сергиеву Посаду и окрестностям.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="https://agrodecor.ru/shop">
+            <a href="/catalog/shop">
               <Button
                 size="lg"
                 className="bg-green-700 hover:bg-green-800 text-white rounded-xl px-8 gap-2"
@@ -971,7 +971,7 @@ function Footer() {
               ].map((item) => (
                 <li key={item}>
                   <a
-                    href="https://agrodecor.ru/shop"
+                    href="/catalog/shop"
                     className="text-sm text-green-300 hover:text-white transition-colors"
                   >
                     {item}
@@ -996,7 +996,7 @@ function Footer() {
               ].map((item) => (
                 <li key={item}>
                   <a
-                    href="https://agrodecor.ru/shop"
+                    href="/catalog/shop"
                     className="text-sm text-green-300 hover:text-white transition-colors"
                   >
                     {item}
@@ -1045,7 +1045,7 @@ function Footer() {
           </p>
           <div className="flex gap-4">
             <a
-              href="https://agrodecor.ru/politika-konfidencialnosti"
+              href="/catalog/politika-konfidencialnosti"
               className="text-xs text-green-400 hover:text-green-200 transition-colors"
             >
               Политика конфиденциальности
